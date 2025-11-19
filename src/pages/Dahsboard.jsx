@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "../styles/Dashboard.component.css";
 import { PaginaPrincipal } from "./PaginaPrincipal";
 import { Experiencia } from "./Experiencia";
+import { Cursos } from "./Cursos";
 
 export function Dashboard() {
 
@@ -62,7 +63,7 @@ export function Dashboard() {
                         <li><button onClick={() => setElementoRenderizado(<PaginaPrincipal />)}>Inicio</button></li>
                         <li><button onClick={() => setElementoRenderizado(<Experiencia />)}>Información profesional</button></li>
                         <li><button>Comentarios</button></li>
-                        <li><button>Cursos</button></li>
+                        <li><button onClick={() => setElementoRenderizado(<Cursos />)}>Cursos</button></li>
                         <li><button>Comentarios</button></li>
                     </ul>
                 </nav>
