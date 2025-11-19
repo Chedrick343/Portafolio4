@@ -1,0 +1,161 @@
+/* ============================
+   GENERAL
+============================ */
+.dashboard {
+  font-family: Arial, sans-serif;
+  background: #f4f8ff; /* blanco con toque azul */
+  min-height: 100vh;
+  color: #1a2a44;
+}
+
+/* ============================
+   HEADER
+============================ */
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background: #1e3a8a; /* azul oscuro */
+  color: white;
+}
+
+.dashboard-title {
+  flex: 1;
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+/* Botón hamburguesa */
+.hamburger {
+  font-size: 1.6rem;
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* ============================
+   SIDEBAR
+============================ */
+.sidebar {
+  position: absolute;
+  top: 0;
+  left: -260px; /* oculto por defecto */
+  width: 220px;
+  height: 100%;
+  background: #ffffff;
+  padding: 2rem 1rem;
+  border-right: 2px solid #d4dcec;
+  transition: left 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 1.2rem;
+}
+
+.sidebar a {
+  color: #1e3a8a;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.sidebar a:hover {
+  text-decoration: underline;
+}
+
+/* ============================
+   CONTENIDO PRINCIPAL
+============================ */
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.content-box {
+  margin-top: 1rem;
+  background: #ffffff;
+  padding: 1.3rem;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================
+   DESKTOP
+============================ */
+@media (min-width: 768px) {
+  .dashboard-container {
+    flex-direction: row;
+  }
+  .dashboard-header{
+    height: 8rem;
+  }
+
+  .sidebar {
+    position: relative;
+    left: 0;
+    width: 230px;
+    border-right: 2px solid #d4dcec;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  .dashboard-content {
+    flex: 1;
+    padding-left: 1rem;
+  }
+}
+
+
+/* ============================
+   DESKTOP (>= 768px)
+============================ */
+@media (min-width: 768px) {
+
+  /* El contenedor principal ahora organiza en fila */
+  .dashboard-container {
+    flex-direction: row;
+    padding: 0; /* más limpio para desktop */
+  }
+
+  /* Sidebar siempre visible, fijo a la izquierda */
+  .sidebar {
+    position: relative;
+    left: 0;
+    width: 260px;      /* tamaño recomendado para dashboard */
+    height: auto;
+    min-height: 100vh;
+    border-right: 2px solid #d4dcec;
+    padding-top: 2rem;
+    padding-left: 1.5rem;
+    background: #ffffff;
+    transition: none;  /* sin animación en desktop */
+  }
+
+  /* Ocultar el botón hamburguesa */
+  .hamburger {
+    display: none;
+  }
+
+  /* Ajuste del contenido principal */
+  .dashboard-content {
+    flex: 1;
+    padding: 2rem;
+    margin-left: 0;
+  }
+
+  /* Caja interna del contenido */
+  .content-box {
+    max-width: 100%;
+    margin-top: 0;
+  }
+}
