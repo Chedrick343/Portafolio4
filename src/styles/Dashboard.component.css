@@ -86,10 +86,14 @@
   border-radius: 12px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
+.textoPresentacion{
+    font-size: 16px;
+}
+.imagenPersonal{
+  border-radius: 20rem;
+  width: 15rem;
+}
 
-/* ============================
-   DESKTOP
-============================ */
 @media (min-width: 768px) {
   .dashboard-container {
     flex-direction: row;
@@ -97,7 +101,13 @@
   .dashboard-header{
     height: 8rem;
   }
-
+  .textoPresentacion{
+      font-size: 22px;
+  }
+  .imagenPersonal{
+    border-radius: 20rem;
+    width: 25rem;
+  }
   .sidebar {
     position: relative;
     left: 0;

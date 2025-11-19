@@ -1,7 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "../styles/Dashboard.component.css";
+import { PaginaPrincipal } from "./PaginaPrincipal";
 
 export function Dashboard() {
+
+    const [elementoRenderizado, setElementoRenderizado] = useState(<PaginaPrincipal/>);
 
     useEffect(() => {
         const sidebar = document.getElementById("sidebar");
@@ -10,17 +13,13 @@ export function Dashboard() {
         const isMobile = () => window.innerWidth < 768;
 
         const toggleMenu = () => {
-            if (!isMobile()) return; // No aplicar en desktop
+            if (!isMobile()) return;
 
-            if (sidebar.style.left === "0px") {
-                sidebar.style.left = "-260px";
-            } else {
-                sidebar.style.left = "0px";
-            }
+            sidebar.style.left = sidebar.style.left === "0px" ? "-260px" : "0px";
         };
 
         const closeMenu = (e) => {
-            if (!isMobile()) return; // No cerrar menú en desktop
+            if (!isMobile()) return;
 
             const clickedInsideSidebar = sidebar.contains(e.target);
             const clickedHamburger = hamburgerBtn.contains(e.target);
@@ -30,16 +29,12 @@ export function Dashboard() {
             }
         };
 
-        hamburgerBtn.addEventListener("click", toggleMenu);
-        document.addEventListener("click", closeMenu);
-
-        // Recalcular cuando cambia el tamaño de la ventana
         const handleResize = () => {
-            if (!isMobile()) {
-                sidebar.style.left = "0px"; // Asegurar que sidebar esté visible en desktop
-            }
+            if (!isMobile()) sidebar.style.left = "0px";
         };
 
+        hamburgerBtn.addEventListener("click", toggleMenu);
+        document.addEventListener("click", closeMenu);
         window.addEventListener("resize", handleResize);
 
         return () => {
@@ -48,7 +43,6 @@ export function Dashboard() {
             window.removeEventListener("resize", handleResize);
         };
     }, []);
-
 
     return (
         <section className="dashboard">
@@ -64,18 +58,26 @@ export function Dashboard() {
 
                 <nav id="sidebar" className="sidebar">
                     <ul>
-                        <li><a href="#">Inicio</a></li>
-                        <li><a href="#">Productos</a></li>
-                        <li><a href="#">Tratamientos</a></li>
-                        <li><a href="#">Reportes</a></li>
-                        <li><a href="#">Ajustes</a></li>
+                        <li><button onClick={() => setElementoRenderizado(<PaginaPrincipal />)}>Inicio</button></li>
+                        <li><button>Cursos</button></li>
+                        <li><button>Comentarios</button></li>
+                        <li><button>Información profesional</button></li>
+                        <li><button>Comentarios</button></li>
                     </ul>
                 </nav>
 
                 <section className="dashboard-content">
                     <section className="content-box">
-                        <h2>Bienvenido</h2>
-                        <p>Aquí irá el contenido dinámico.</p>
+
+                        {elementoRenderizado ? (
+                            elementoRenderizado
+                        ) : (
+                            <>
+                                <h2>Bienvenido</h2>
+                                <p>Aquí irá el contenido dinámico.</p>
+                            </>
+                        )}
+
                     </section>
                 </section>
 
