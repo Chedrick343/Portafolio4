@@ -1,0 +1,16 @@
+export function Extracurricular(){
+    return(
+        <section className="content-box">
+            <h2>Actividades Extracurriculares</h2>
+            <ul>
+                <li className="elementoListaExtracurricular">SHU+TEC</li>
+                <p className="textoListaExtracurricular">Evento en el que se reunen estudiantes del Tecnológico de Costa Rica y de la universidad Sacred Heart de EEUU para ser parte de un voluntariado en la reserva biológica Veragua Rain Forest. Una actividad enriquesedora a nivel cultural y también a nivel de habilidades blandas, como la practica del idioma inglés</p>
+                <li className="elementoListaExtracurricular">Hackaton</li>
+                <p className="textoListaExtracurricular">Concurso interno del Centro académico de Limón, donde los estudiantes desarrollamos el pensamiento lógico y la capacidad de buscar soluciones óptimas a problemas presentados. Es una actividad de la que me gusta participar ya que probamos nuestras habilidades.</p>
+                <li className="elementoListaExtracurricular">Voluntec (GASEL)</li>
+                <p className="textoListaExtracurricular">El cuidado del medio ambiente es algo que nos interesa a todos, por eso siempre que puedo participo de actividades como la que se llevó a cabo el 2 de agosto del 2022 para la recolección de basura de parte de la carrera de Gestión Ambiental</p>
+
+            </ul>
+        </section>
+    )
+}

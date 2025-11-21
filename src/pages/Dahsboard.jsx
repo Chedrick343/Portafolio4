@@ -4,6 +4,8 @@ import { PaginaPrincipal } from "./PaginaPrincipal";
 import { Experiencia } from "./Experiencia";
 import { Cursos } from "./Cursos";
 import { Comentarios } from "./Comentarios"
+import { Pasatiempos } from "./Pasatiempos";
+import { Extracurricular } from "./Extracurricular";
 
 export function Dashboard() {
 
@@ -65,7 +67,8 @@ export function Dashboard() {
                         <li><button onClick={() => setElementoRenderizado(<Experiencia />)}>Información profesional</button></li>
                         <li><button onClick={() => setElementoRenderizado(<Comentarios />)}>Comentarios</button></li>
                         <li><button onClick={() => setElementoRenderizado(<Cursos />)}>Cursos</button></li>
-                        <li><button>Comentarios</button></li>
+                        <li><button onClick={() => setElementoRenderizado(<Pasatiempos />)}>Pasatiempos</button></li>
+                        <li><button onClick={() => setElementoRenderizado(<Extracurricular />)}>Extracurricular</button></li>
                     </ul>
                 </nav>
 

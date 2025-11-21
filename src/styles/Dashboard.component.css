@@ -15,6 +15,28 @@
     margin-top: 1.5rem;
     font-size: 1.2rem;
 }
+.textoPasatiempo{
+  font-size: 20px;
+  text-align: justify;
+}
+.tituloPasatiempo{
+  text-align: left;
+}
+.elementoDeListaJuegos{
+  color: green;
+  text-align: left;
+  font-size: 25px;
+}
+
+.elementoListaExtracurricular{
+  font-size: 25px;
+  text-align: left;
+}
+.textoListaExtracurricular{
+  font-size: 18px;
+  text-align: justify;
+}
+
 
 /* Semestre */
 .semestre-box {
@@ -31,6 +53,33 @@
 .curso-box {
     margin-top: 0.5rem;
 }
+
+
+
+
+
+.tituloArroz{
+  color: rgb(223, 154, 4);
+  font-size: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Botón del curso - EN MÓVIL ES FULL WIDTH */
 .curso-btn {

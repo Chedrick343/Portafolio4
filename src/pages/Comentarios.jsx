@@ -16,36 +16,50 @@ export function Comentarios() {
             .select("*")
             .order("id", { ascending: false });
 
-        if (!error) setListaComentarios(data);
+        if (error) {
+            console.error("Error SELECT:", error);
+            return;
+        }
+
+        setListaComentarios(data);
     };
 
     // =======================
     // Enviar nuevo comentario
     // =======================
     const manejarEnvio = async () => {
-    if (!comentario.trim()) {
-        alert("El comentario no puede estar vacío.");
-        return;
-    }
+        if (!comentario.trim()) {
+            alert("El comentario no puede estar vacío.");
+            return;
+        }
 
-    const { error } = await supabase
-        .from("comentarios")
-        .insert({
-            nombre: nombre || "Anónimo",
-            comentario: comentario,
-        });
+        const { error } = await supabase
+            .from("comentarios")
+            .insert({
+                nombre: nombre || "Anónimo",
+                comentario: comentario,
+            });
 
-    if (error) {
-        console.error("ERROR INSERTANDO:", error);
-        alert("No se pudo guardar el comentario. Revisa consola.");
-        return;
-    }
+        if (error) {
+            console.error("ERROR INSERTANDO:", error);
+            alert("No se pudo guardar el comentario. Revisa consola.");
+            return;
+        }
 
-    setComentario("");
-    setNombre("");
-    cargarComentarios();
-};
+        // limpiar inputs
+        setComentario("");
+        setNombre("");
 
+        // volver a cargar después del insert
+        cargarComentarios();
+    };
+
+    // =======================
+    // Cargar al abrir el componente
+    // =======================
+    useEffect(() => {
+        cargarComentarios();
+    }, []); // solo una vez al montar
 
     return (
         <section className="content-box">
