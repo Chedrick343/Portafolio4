@@ -16,12 +16,12 @@
     font-size: 1.2rem;
 }
 .shutec1, .shutec2, .hackaton1{
-  width: 20rem;
+  width: 15rem;
   border-radius: 3rem;
 }
 
 .voleibol1{
-  width: 30rem;
+  width: 18rem;
   border-radius: 1rem;
 }
 .mensajeExito {
@@ -34,11 +34,11 @@
     text-align: center;
 }
 .voluntec1{
-  width: 25rem;
+  width: 15rem;
 }
 
 .logoJuego{
-  width: 30rem;
+  width: 15rem;
 }
 .seccionJuegos {
     display: flex;
@@ -312,6 +312,10 @@ p, ul{
 .voleibol1{
   width: 70rem;
   border-radius: 1rem;
+}
+
+.logoJuego{
+  width: 40rem;
 }
 
 .voluntec1, .shutec1, .shutec2, .hackaton1{
