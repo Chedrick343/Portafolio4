@@ -33,8 +33,17 @@
     font-weight: bold;
     text-align: center;
 }
+.voluntec1{
+  width: 25rem;
+}
+
 .logoJuego{
   width: 30rem;
+}
+.seccionJuegos {
+    display: flex;
+    justify-content: flex-start; /* Alinea a la izquierda */
+    gap: 10px; /* opcional */
 }
 
 .textoPasatiempo{
@@ -88,7 +97,9 @@
 
 
 
-
+p, ul{
+  font-size: 22px;
+}
 
 
 
@@ -303,7 +314,7 @@
   border-radius: 1rem;
 }
 
-.shutec1, .shutec2, .hackaton1{
+.voluntec1, .shutec1, .shutec2, .hackaton1{
   width: 40rem;
   border-radius: 3rem;
 }

@@ -1,6 +1,7 @@
 import SHUTEC1 from "../images/SHUTEC1.jpg"
 import SHUTEC2 from "../images/SHUTEC2.jpg"
 import HACKATON1 from "../images/HACKATON1.jpeg"
+import VOLUNTEC1 from "../images/VOLUNTEC.png"
 export function Extracurricular(){
     return(
         <section className="content-box">
@@ -15,6 +16,7 @@ export function Extracurricular(){
                 <img className="hackaton1" src={HACKATON1} alt="Participantes de la HACKATON 2.0 del 2025" />
                 <li className="elementoListaExtracurricular">Voluntec (GASEL)</li>
                 <p className="textoListaExtracurricular">El cuidado del medio ambiente es algo que nos interesa a todos, por eso siempre que puedo participo de actividades como la que se llevó a cabo el 2 de agosto del 2022 para la recolección de basura de parte de la carrera de Gestión Ambiental</p>
+                <img src={VOLUNTEC1} alt="Voluntec x gestionAmbiental, limpieza 2 de agosto de 2022" className="voluntec1" />
 
             </ul>
         </section>
