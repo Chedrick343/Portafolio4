@@ -164,22 +164,32 @@
   display: flex;
   flex-direction: column;
 }
-.contenedorComentarios{
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+.contenedorComentarios .comentario {
+    background: #eef2ff;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 8px;
 }
-.textoNombre{
-  border-radius: 2rem;
-  height: 3rem;
-  margin-bottom: 2rem;
+.textoNombre,
+.textoComentario {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
 }
 .textoComentario{
   height: 10rem;
 }
-.botonAgregarComentario{
-  margin-top: 1rem;
-  border-radius: 2rem;
+.botonAgregarComentario {
+    margin-top: 10px;
+    padding: 12px;
+    width: 100%;
+    background-color: #1e3a8a;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
 }
 
 .content-box {

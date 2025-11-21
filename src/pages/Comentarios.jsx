@@ -1,22 +1,96 @@
-import "../styles/Dashboard.component.css"
-export function Comentarios(){
-    return(
+import { useEffect, useState } from "react";
+import { supabase } from "../lib/supabase";
+import "../styles/Dashboard.component.css";
+
+export function Comentarios() {
+    const [nombre, setNombre] = useState("");
+    const [comentario, setComentario] = useState("");
+    const [listaComentarios, setListaComentarios] = useState([]);
+
+    // =======================
+    // Cargar comentarios
+    // =======================
+    const cargarComentarios = async () => {
+        const { data, error } = await supabase
+            .from("comentarios")
+            .select("*")
+            .order("id", { ascending: false });
+
+        if (!error) setListaComentarios(data);
+    };
+
+    // =======================
+    // Enviar nuevo comentario
+    // =======================
+    const manejarEnvio = async () => {
+        if (!comentario.trim()) {
+            alert("El comentario no puede estar vacío.");
+            return;
+        }
+
+        const { error } = await supabase.from("comentarios").insert({
+            nombre: nombre || "Anónimo",
+            comentario,
+        });
+
+        if (!error) {
+            setComentario("");
+            setNombre("");
+            cargarComentarios();
+        }
+    };
+
+    // Cargar al iniciar
+    useEffect(() => {
+        cargarComentarios();
+    }, []);
+
+    return (
         <section className="content-box">
             <section className="content-box-comentarios">
-                <p>Te invito a dejar un comentario sobre mi desempeño como compañero de trabajo y como estudiante en general, eso me ayudaría mucho</p>
-                <input className="textoNombre" type="text" placeholder="Ingresa tu nombre...(opcional)" />
-                <textarea className="textoComentario" name="" placeholder="Aquí va tu comentario..."></textarea>
-                <button className="botonAgregarComentario">Agregar comentario</button>
-            </section>
-            <section className="contenedorComentarios">
-                <h2>Esto es lo que piensan de mi</h2>
-                <div className="comentario">
-                    <h2>Anonimo</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, voluptatum! Natus, rerum eos corporis exercitationem deleniti, sapiente nesciunt porro nostrum quia ut reprehenderit sed architecto animi odit nemo quaerat. Quidem?</p>
-                </div>
-                
+                <p>
+                    Te invito a dejar un comentario sobre mi desempeño como compañero
+                    y como estudiante.
+                </p>
+
+                <input
+                    className="textoNombre"
+                    type="text"
+                    placeholder="Ingresa tu nombre... (opcional)"
+                    value={nombre}
+                    onChange={(e) => setNombre(e.target.value)}
+                />
+
+                <textarea
+                    className="textoComentario"
+                    placeholder="Aquí va tu comentario..."
+                    value={comentario}
+                    onChange={(e) => setComentario(e.target.value)}
+                ></textarea>
+
+                <button className="botonAgregarComentario" onClick={manejarEnvio}>
+                    Agregar comentario
+                </button>
             </section>
 
+            {/* LISTADO DE COMENTARIOS */}
+            <section className="contenedorComentarios">
+                <h2>Esto es lo que piensan de mí</h2>
+
+                {listaComentarios.length === 0 ? (
+                    <p>No hay comentarios aún.</p>
+                ) : (
+                    listaComentarios.map((c) => (
+                        <div className="comentario" key={c.id}>
+                            <h3>{c.nombre}</h3>
+                            <p>{c.comentario}</p>
+                            <small>
+                                {new Date(c.fecha).toLocaleString("es-CR")}
+                            </small>
+                        </div>
+                    ))
+                )}
+            </section>
         </section>
     );
-};
+}
