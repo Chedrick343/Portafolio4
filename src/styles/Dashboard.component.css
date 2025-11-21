@@ -15,6 +15,15 @@
     margin-top: 1.5rem;
     font-size: 1.2rem;
 }
+.shutec1, .shutec2, .hackaton1{
+  width: 20rem;
+  border-radius: 3rem;
+}
+
+.voleibol1{
+  width: 30rem;
+  border-radius: 1rem;
+}
 .mensajeExito {
     margin-top: 10px;
     padding: 10px;
@@ -23,6 +32,9 @@
     border-radius: 8px;
     font-weight: bold;
     text-align: center;
+}
+.logoJuego{
+  width: 30rem;
 }
 
 .textoPasatiempo{
@@ -286,6 +298,15 @@
     width: 230px;
     border-right: 2px solid #d4dcec;
   }
+.voleibol1{
+  width: 70rem;
+  border-radius: 1rem;
+}
+
+.shutec1, .shutec2, .hackaton1{
+  width: 40rem;
+  border-radius: 3rem;
+}
 
   .hamburger {
     display: none;
