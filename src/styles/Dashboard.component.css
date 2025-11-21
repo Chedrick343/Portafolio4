@@ -15,6 +15,16 @@
     margin-top: 1.5rem;
     font-size: 1.2rem;
 }
+.mensajeExito {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #4ade80; /* verde suave */
+    color: #064e3b;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+}
+
 .textoPasatiempo{
   font-size: 20px;
   text-align: justify;
