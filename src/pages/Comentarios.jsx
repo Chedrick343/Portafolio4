@@ -23,27 +23,29 @@ export function Comentarios() {
     // Enviar nuevo comentario
     // =======================
     const manejarEnvio = async () => {
-        if (!comentario.trim()) {
-            alert("El comentario no puede estar vacío.");
-            return;
-        }
+    if (!comentario.trim()) {
+        alert("El comentario no puede estar vacío.");
+        return;
+    }
 
-        const { error } = await supabase.from("comentarios").insert({
+    const { error } = await supabase
+        .from("comentarios")
+        .insert({
             nombre: nombre || "Anónimo",
-            comentario,
+            comentario: comentario,
         });
 
-        if (!error) {
-            setComentario("");
-            setNombre("");
-            cargarComentarios();
-        }
-    };
+    if (error) {
+        console.error("ERROR INSERTANDO:", error);
+        alert("No se pudo guardar el comentario. Revisa consola.");
+        return;
+    }
 
-    // Cargar al iniciar
-    useEffect(() => {
-        cargarComentarios();
-    }, []);
+    setComentario("");
+    setNombre("");
+    cargarComentarios();
+};
+
 
     return (
         <section className="content-box">
